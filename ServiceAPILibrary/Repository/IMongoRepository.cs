@@ -6,7 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace ServiceAPILibrary.Repository
+namespace APIServiceCard.Repository
 {
     public interface IMongoRepository<TDocument> where TDocument : IDocument
     {

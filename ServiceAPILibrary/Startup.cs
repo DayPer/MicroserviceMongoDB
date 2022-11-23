@@ -1,3 +1,4 @@
+using APIServiceCard.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ServiceAPILibrary
+namespace APIServiceCard
 {
     public class Startup
     {
@@ -43,7 +44,17 @@ namespace ServiceAPILibrary
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ServiceAPILibrary", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "APIServiceCard", Version = "v1" });
+            });
+
+            //CORS Control
+            services.AddCors(opt =>
+            {
+                opt.AddPolicy("CorsRule", rule =>
+                 {
+                     rule.AllowAnyHeader().AllowAnyMethod().WithOrigins("*");
+                 });
+
             });
         }
 
@@ -54,10 +65,12 @@ namespace ServiceAPILibrary
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ServiceAPILibrary v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "APIServiceCard v1"));
             }
 
             app.UseRouting();
+
+            app.UseCors("CorsRule");
 
             app.UseAuthorization();
 
