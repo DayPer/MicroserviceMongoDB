@@ -5,17 +5,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using APIServiceCard.Core.Entities;
 
-namespace ServiceAPILibrary.Core.ContextMongoDB
+namespace APIServiceCard.Core.ContextMongoDB
 {
-    public class AutorContext : IAutorContext
+    public class CardContext : ICardContext
     {
         private readonly IMongoDatabase _db;
-        public AutorContext(IOptions<MongoSetting> options)
+        public CardContext(IOptions<MongoSetting> options)
         {
             var _client = new MongoClient(options.Value.ConnecionString);
             _db = _client.GetDatabase(options.Value.DataBase);
         }
-        public IMongoCollection<Autor> Autores => _db.GetCollection<Autor>("Autor");
+        public IMongoCollection<Card> Cards => _db.GetCollection<Card>("Cards");
+
     }
 }

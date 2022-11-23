@@ -1,4 +1,5 @@
-﻿using APIServiceCard.Repository;
+﻿using APIServiceCard.Core.Entities;
+using APIServiceCard.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ServiceAPILibrary.Core.Entities;

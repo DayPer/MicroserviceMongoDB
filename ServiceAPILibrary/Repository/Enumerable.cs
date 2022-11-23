@@ -1,4 +1,5 @@
-﻿using ServiceAPILibrary.Core.Entities;
+﻿using APIServiceCard.Core.Entities;
+using ServiceAPILibrary.Core.Entities;
 
 namespace ServiceAPILibrary.Repository
 {

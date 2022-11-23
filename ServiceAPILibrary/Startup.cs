@@ -7,8 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using ServiceAPILibrary.Core;
-using ServiceAPILibrary.Core.ContextMongoDB;
+using APIServiceCard.Core;
+using APIServiceCard.Core.ContextMongoDB;
 using ServiceAPILibrary.Repository;
 using System;
 using System.Collections.Generic;
@@ -37,8 +37,8 @@ namespace APIServiceCard
                 });
 
             services.AddSingleton<MongoSetting>();
-            services.AddTransient<IAutorContext, AutorContext>();
-            services.AddTransient<IAutorRepository, AutorRepository>();
+            services.AddTransient<ICardContext, CardContext>();
+            services.AddTransient<ICardRepository, CardRepository>();
             services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
 
             services.AddControllers();

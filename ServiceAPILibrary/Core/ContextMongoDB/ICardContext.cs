@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using APIServiceCard.Core.Entities;
 using MongoDB.Driver;
 using ServiceAPILibrary.Core.Entities;
 
 
-namespace ServiceAPILibrary.Core.ContextMongoDB
+namespace APIServiceCard.Core.ContextMongoDB
 {
-    public interface IAutorContext
+    public interface ICardContext
     {
-        IMongoCollection<Autor> Autores { get; }
+        IMongoCollection<Card> Cards { get; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
-using ServiceAPILibrary.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace APIServiceCard.Core.Entities
 {
-    [BsonCollection("Card")]
-    public class CardEntity : Document
+    public class Card
     {
+        [BsonId]
+        [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
+
         [BsonElement("Headline")]
         public String Headline { get; set; }
 
@@ -21,6 +22,5 @@ namespace APIServiceCard.Core.Entities
 
         [BsonElement("CW")]
         public string CW { get; set; }
-
     }
 }
