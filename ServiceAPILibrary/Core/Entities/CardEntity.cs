@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using FluentValidation;
+using MongoDB.Bson.Serialization.Attributes;
 using ServiceAPILibrary.Core.Entities;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,18 @@ namespace APIServiceCard.Core.Entities
 
         [BsonElement("CW")]
         public string CW { get; set; }
+
+    }
+
+    public class cardRegisterValidation : AbstractValidator<CardEntity>
+    {
+        public cardRegisterValidation()
+        {
+            RuleFor(x => x.Headline).NotEmpty();
+            RuleFor(x => x.CardNumber).NotEmpty();
+            RuleFor(x => x.ExpirationDay).NotEmpty();
+            RuleFor(x => x.CW).NotEmpty();
+        }
 
     }
 }

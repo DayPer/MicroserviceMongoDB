@@ -23,14 +23,14 @@ namespace APIServiceCard.Controllers
         }
 
         [HttpGet]
-        //GetAll information Entity Autor
+        //GetAll information Entity Card
         public async Task<ActionResult<IEnumerable<CardEntity>>> Get()
         {
             return Ok(await _cardGenericRepository.GetAll());
         }
 
         [HttpGet("{Id}")]
-        //Get by Id information Entity Autor
+        //Get by Id information Entity Card
         public async Task<ActionResult<CardEntity>> GetById(string Id)
         {
             var autor = await _cardGenericRepository.GetById(Id);

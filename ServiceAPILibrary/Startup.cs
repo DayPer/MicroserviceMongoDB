@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation.AspNetCore;
 
 namespace APIServiceCard
 {
@@ -32,16 +33,17 @@ namespace APIServiceCard
             services.Configure<MongoSetting>(
                 options =>
                 {
-                    options.ConnecionString = Configuration.GetSection("MongoDB:ConnectionString").Value;
+                    options.ConnecionString = Configuration.GetSection("MongoDB:DBConnectionString").Value;
                     options.DataBase = Configuration.GetSection("MongoDB:DataBase").Value;
-                });
+
+        });
 
             services.AddSingleton<MongoSetting>();
             services.AddTransient<ICardContext, CardContext>();
             services.AddTransient<ICardRepository, CardRepository>();
             services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
 
-            services.AddControllers();
+            services.AddControllers().AddFluentValidation(x=> x.RegisterValidatorsFromAssemblyContaining<CardRepository>());
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "APIServiceCard", Version = "v1" });

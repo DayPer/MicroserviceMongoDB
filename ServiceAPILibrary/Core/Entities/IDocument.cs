@@ -10,9 +10,7 @@ namespace APIServiceCard.Core.Entities
     public interface IDocument
     {
         [BsonId]
-        //[BsonRepresentation(MongoDB.Bson.BsonType.String)]
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
-        //ObjectId id { get; set; }
         string id { get; set; }
         DateTime CreateDate { get; }
 

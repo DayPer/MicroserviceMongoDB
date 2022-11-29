@@ -11,10 +11,7 @@ namespace APIServiceCard.Core.Entities
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        //public ObjectId id { get; set; }
         public string id { get; set; }
-
-        //public DateTime CreateDate => id.CreationTime;
         public DateTime CreateDate => DateTime.Now;
     }
 }
