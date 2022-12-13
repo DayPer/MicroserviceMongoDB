@@ -1,4 +1,4 @@
-﻿using APIServiceCard.Core.Entities;
+﻿using APIServiceTest.Core.Entities;
 using ServiceAPILibrary.Core.Entities;
 
 namespace ServiceAPILibrary.Repository

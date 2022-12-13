@@ -1,13 +1,13 @@
 ﻿using MongoDB.Driver;
-using APIServiceCard.Core.ContextMongoDB;
+using APIServiceTest.Core.ContextMongoDB;
 using ServiceAPILibrary.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using APIServiceCard.Core.Entities;
+using APIServiceTest.Core.Entities;
 
-namespace APIServiceCard.Repository
+namespace APIServiceTest.Repository
 {
     public class CardRepository : ICardRepository
     {

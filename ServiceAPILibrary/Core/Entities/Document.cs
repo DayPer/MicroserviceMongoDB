@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace APIServiceCard.Core.Entities
+namespace APIServiceTest.Core.Entities
 {
     public class Document : IDocument
     {

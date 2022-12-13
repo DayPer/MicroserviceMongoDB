@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using APIServiceTest.Core.Entities;
+using APIServiceTest.Core.ContextMongoDB;
 
 namespace APIServiceTest.Core.ContextMongoDB
 {
-    public class CardContext : ICardContext
+    public class UserContext : IUserContext
     {
         private readonly IMongoDatabase _db;
-        public CardContext(IOptions<MongoSetting> options)
+        public UserContext(IOptions<MongoSetting> options)
         {
             var _client = new MongoClient(options.Value.ConnecionString);
             _db = _client.GetDatabase(options.Value.DataBase);
         }
-        public IMongoCollection<Card> Cards => _db.GetCollection<Card>("Cards");
+        public IMongoCollection<User> Users => _db.GetCollection<User>("Users");
 
     }
 }

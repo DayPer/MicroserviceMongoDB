@@ -1,4 +1,4 @@
-using APIServiceCard.Repository;
+using APIServiceTest.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -7,14 +7,16 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using APIServiceCard.Core;
-using APIServiceCard.Core.ContextMongoDB;
+using APIServiceTest.Core;
+using APIServiceTest.Core.ContextMongoDB;
 using ServiceAPILibrary.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentValidation.AspNetCore;
+using APIServiceTest.Repository;
+using APIServiceTest.Core.ContextMongoDB;
 
 namespace APIServiceCard
 {
@@ -39,11 +41,17 @@ namespace APIServiceCard
         });
 
             services.AddSingleton<MongoSetting>();
+
             services.AddTransient<ICardContext, CardContext>();
             services.AddTransient<ICardRepository, CardRepository>();
             services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
+            services.AddControllers().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<CardRepository>());
 
-            services.AddControllers().AddFluentValidation(x=> x.RegisterValidatorsFromAssemblyContaining<CardRepository>());
+            services.AddTransient<IUserContext, UserContext>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
+            services.AddControllers().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<UserRepository>());
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "APIServiceCard", Version = "v1" });

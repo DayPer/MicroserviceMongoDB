@@ -1,5 +1,5 @@
-﻿using APIServiceCard.Core.Entities;
-using APIServiceCard.Repository;
+﻿using APIServiceTest.Core.Entities;
+using APIServiceTest.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ServiceAPILibrary.Core.Entities;
@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace APIServiceCard.Controllers
+namespace APIServiceTest.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

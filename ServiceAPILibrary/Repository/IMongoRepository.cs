@@ -1,5 +1,6 @@
 ﻿
-using APIServiceCard.Core.Entities;
+using APIServiceTest.Core.Entities;
+using APIServiceTest.Core.Entities;
 using ServiceAPILibrary.Core.Entities;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace APIServiceCard.Repository
+namespace APIServiceTest.Repository
 {
     public interface IMongoRepository<TDocument> where TDocument : IDocument
     {

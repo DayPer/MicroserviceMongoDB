@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace APIServiceCard.Core
+namespace APIServiceTest.Core
 {
     public class MongoSetting
     {

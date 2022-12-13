@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace APIServiceCard.Core.Entities
+namespace APIServiceTest.Core.Entities
 {
     [BsonCollection("Card")]
     public class CardEntity : Document
