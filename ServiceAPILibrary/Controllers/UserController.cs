@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Intercom.Data;
 
 namespace APIServiceTest.Controllers
 {
@@ -30,7 +31,7 @@ namespace APIServiceTest.Controllers
 
         [HttpGet("{Id}")]
         //Get by Id information Entity Card
-        public async Task<ActionResult<User>> GetById(string Id)
+        public async Task<ActionResult<UserEntity>> GetById(string Id)
         {
             var autor = await _userGenericRepository.GetById(Id);
             return Ok(autor);
@@ -57,6 +58,7 @@ namespace APIServiceTest.Controllers
             await _userGenericRepository.DeleteById(Id);
 
         }
+
 
     }
 }

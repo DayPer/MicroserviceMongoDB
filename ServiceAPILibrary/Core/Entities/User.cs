@@ -18,8 +18,8 @@ namespace APIServiceTest.Core.Entities
         [BsonElement("LastName")]
         public String LastName { get; set; }
 
-        [BsonElement("Username")]
-        public string Username { get; set; }
+        [BsonElement("UserName")]
+        public String UserName { get; set; }
 
         [BsonElement("Email")]
         public string Email { get; set; }
@@ -33,7 +33,7 @@ namespace APIServiceTest.Core.Entities
             {
                 RuleFor(x => x.Name).NotEmpty();
                 RuleFor(x => x.LastName).NotEmpty();
-                RuleFor(x => x.Username).NotEmpty();
+                RuleFor(x => x.UserName).NotEmpty();
                 RuleFor(x => x.Email).NotEmpty();
                 RuleFor(x => x.Pass).NotEmpty();
 
